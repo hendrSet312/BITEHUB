@@ -28,9 +28,6 @@ class RAGQuery:
         prompt = f"Context: {context}\n\nQuestion: {user_query}\n\nAnswer:"
         response = self.gemma_lm.generate(prompt)
         return response
-    
-test = RAGQuery(PERSIST_PATH)
-print(test.query("How many calories are in a Beetroot"))
 
 
 

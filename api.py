@@ -1,8 +1,11 @@
 from fastapi import FastAPI
-#from inference import RAGQuery
+from inference import RAGQuery
 
 app = FastAPI()
+PERSIST_PATH = "./chroma"
 
 @app.post("/")
 async def query(query:str):
-    return query
+    ragquery = RAGQuery(PERSIST_PATH)
+    response = ragquery.query("How much calories are in beetroot?")
+    return response
